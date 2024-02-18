@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="ZoneLogin.ZoneLoginCustomEntryPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:controls="clr-namespace:ZoneLogin.Controls"
+    Title="ZoneLoginCustomEntryPage"
+    Padding="30,40"
+    BackgroundColor="#fef1e8"
+    NavigationPage.HasNavigationBar="False">
+
+    <!--#region Resources-->
+    <!--
+        Es para dar estilo de una vez para todos los componentes en la página.
+        Ej: quiero que todos los Entrys tengan FontSize="12".
+        Entonces lo pones acá y todos los Entrys de este xaml van a tener FontSize="12" por defecto, a menos que explícitamente tengan otro.
+    -->
+
+    <ContentPage.Resources>
+        <Style TargetType="Label">
+            <Setter Property="TextColor" Value="Black" />
+            <Setter Property="FontFamily" Value="OpenSansRegular" />
+        </Style>
+
+        <Style TargetType="Entry">
+            <Setter Property="TextColor" Value="Black" />
+            <Setter Property="PlaceholderColor" Value="#966f7f" />
+            <Setter Property="FontSize" Value="12" />
+            <Setter Property="FontFamily" Value="OpenSansRegular" />
+        </Style>
+    </ContentPage.Resources>
+    <!--#endregion-->
+
+    <Grid RowDefinitions="Auto,*,Auto">
+        <!--  Title  -->
+        <Label
+            FontFamily="OpenSansSemibold"
+            FontSize="24"
+            Text="ZONE" />
+
+        <!--  Subtitle + Input  -->
+        <VerticalStackLayout
+            Grid.Row="1"
+            Spacing="25"
+            VerticalOptions="Center">
+            <Label
+                FontFamily="OpenSansSemibold"
+                FontSize="18"
+                Text="Sign up to start&#x0a;learrning on zone today." />
+            <Label FontSize="12">
+                <Label.FormattedText>
+                    <FormattedString>
+                        <Span
+                            FontFamily="OpenSansRegular"
+                            Text="Instant access to "
+                            TextColor="Black" />
+                        <Span
+                            FontAttributes="Bold"
+                            Text="1,000,000+"
+                            TextColor="Black" />
+                        <Span
+                            FontFamily="OpenSansRegular"
+                            Text=" educational&#x0a;tutorials, lessons, and workshops"
+                            TextColor="Black" />
+                    </FormattedString>
+                </Label.FormattedText>
+            </Label>
+            <VerticalStackLayout Spacing="10">
+                <controls:CustomEntry Image="email.png" Placeholder="example@zone.com" />
+                <controls:CustomEntry
+                    Image="user.png"
+                    IsValid="True"
+                    Text="Landon Alfred Peterson" />
+                <controls:CustomEntry Image="phone.png" Placeholder="+44 01234 567890" />
+                <controls:CustomEntry
+                    HasPasswordStrength="True"
+                    Image="locked.png"
+                    IsPassword="True"
+                    Text="Very Long Password" />
+                <controls:CustomEntry
+                    Image="locked.png"
+                    IsPassword="True"
+                    Text="Very Long Password" />
+            </VerticalStackLayout>
+        </VerticalStackLayout>
+
+        <!--  Button  -->
+        <VerticalStackLayout Grid.Row="2" Spacing="10">
+            <Button
+                BackgroundColor="#ec6377"
+                CornerRadius="10"
+                FontFamily="OpenSansSemibold"
+                Shadow="{Shadow Brush='#ec6377',
+                                Opacity='1',
+                                Radius='30'}"
+                Text=" Let's do this!"
+                TextColor="#fef1e8" />
+            <Label
+                FontSize="12"
+                HorizontalTextAlignment="Center"
+                Text="I already have an account..." />
+        </VerticalStackLayout>
+    </Grid>
+</ContentPage>
